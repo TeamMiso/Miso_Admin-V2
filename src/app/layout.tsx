@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "styled-components";
@@ -5,7 +7,7 @@ import { theme } from "./style";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
+export const MisoAdminMetadata: Metadata = {
   title: "Miso Admin",
   description: "미소의 관리자 전용 페이지입니다.",
   icons: {
