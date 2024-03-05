@@ -2,6 +2,6 @@
 
 import * as S from "./style";
 
-export default function InquiryPage() {
+export default function LoginPage() {
   return <S.InquiryWrapper></S.InquiryWrapper>;
 }
