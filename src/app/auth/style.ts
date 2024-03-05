@@ -61,6 +61,16 @@ export const Input = styled.input`
   }
 `;
 
+export const ErrorMessageWrap = styled.div`
+  ${({ theme }) => theme.typo.caption.regular};
+  color: ${({ theme }) => theme.color.red["500"]};
+  position: absolute;
+  margin-top: 3.5rem;
+  &:last-child {
+    margin-top: 8rem;
+  }
+`;
+
 export const LoginButton = styled.button`
   background-color: ${({ theme }) => theme.color.green["500"]};
   color: ${({ theme }) => theme.color.white};
