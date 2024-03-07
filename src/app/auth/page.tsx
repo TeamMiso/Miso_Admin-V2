@@ -1,7 +1,8 @@
 "use client";
 
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import * as S from "./style";
+import isLogin from "@/api/auth/isLogin";
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
@@ -27,6 +28,10 @@ export default function LoginPage() {
     } else {
       setPwValid(false);
     }
+  };
+
+  const handleLoginClick = () => {
+    isLogin(email, pw);
   };
 
   return (
@@ -61,7 +66,7 @@ export default function LoginPage() {
               )}
             </S.ErrorMessageWrap>
           </S.InputContainer>
-          <S.LoginButton>로그인</S.LoginButton>
+          <S.LoginButton onClick={handleLoginClick}>로그인</S.LoginButton>
         </S.LoginWrapper>
       </S.LoginContainer>
     </S.LoginPageWrapper>
