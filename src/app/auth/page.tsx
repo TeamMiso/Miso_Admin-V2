@@ -4,11 +4,10 @@ import { ChangeEvent, useEffect, useState } from "react";
 import * as S from "./style";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const [emailValid, setEmailValid] = useState(false);
-  const [pwValid, setPwValid] = useState(false);
-  const [notAllow, setNotAllow] = useState(true);
+  const [email, setEmail] = useState<string>("");
+  const [pw, setPw] = useState<string>("");
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [pwValid, setPwValid] = useState<boolean>(false);
 
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -30,14 +29,6 @@ export default function LoginPage() {
     }
   };
 
-  useEffect(() => {
-    if (emailValid && pwValid) {
-      setNotAllow(false);
-      return;
-    }
-    setNotAllow(true);
-  }, [emailValid, pwValid]);
-
   return (
     <S.LoginPageWrapper>
       <S.LoginContainer>
@@ -47,13 +38,19 @@ export default function LoginPage() {
             <S.SemiTitle>환경을 웃음으로 바꾸다 :)</S.SemiTitle>
           </S.TitleContainer>
           <S.InputContainer>
-            <S.Input onChange={handleEmail} placeholder="이메일" type="text" />
+            <S.Input
+              isStatus={!emailValid && email.length > 0}
+              onChange={handleEmail}
+              placeholder="이메일"
+              type="text"
+            />
             <S.ErrorMessageWrap>
               {!emailValid && email.length > 0 && (
                 <span>올바른 이메일을 입력해주세요.</span>
               )}
             </S.ErrorMessageWrap>
             <S.Input
+              isStatus={!pwValid && pw.length}
               onChange={handlePassword}
               placeholder="비밀번호"
               type="password"

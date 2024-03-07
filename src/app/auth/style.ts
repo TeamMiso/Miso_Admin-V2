@@ -43,9 +43,12 @@ export const InputContainer = styled.div`
   width: 100%;
 `;
 
-export const Input = styled.input`
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray["700"]};
-  color: ${({ theme }) => theme.color.black};
+export const Input = styled.input<{ isStatus: any }>`
+  border: 0.0625rem solid
+    ${({ isStatus, theme }) =>
+      isStatus ? theme.color.red["500"] : theme.color.gray["700"]};
+  color: ${({ isStatus, theme }) =>
+    isStatus ? theme.color.red["500"] : theme.color.black};
   ${({ theme }) => theme.typo.text_sm.regular};
   border-radius: 0.5rem;
   width: calc(100% - 2.625rem);
@@ -53,7 +56,8 @@ export const Input = styled.input`
   padding: 0 1.25rem;
   margin-bottom: 1rem;
   &:focus {
-    border-color: ${({ theme }) => theme.color.green["500"]};
+    border-color: ${({ isStatus, theme }) =>
+      isStatus ? theme.color.red["500"] : theme.color.green["500"]};
     outline: none;
   }
   &::placeholder {
