@@ -1,14 +1,11 @@
-"use client";
-
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "styled-components";
-import { theme } from "./style";
 import "./style/globals.css";
+import Provider from "./provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const MisoMetadata: Metadata = {
+export const metadata: Metadata = {
   title: "Miso Admin",
   description: "미소의 관리자 전용 페이지입니다.",
   icons: {
@@ -22,10 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ThemeProvider theme={theme}>
-      <html lang="en">
+    <html lang="en">
+      <Provider>
         <body className={inter.className}>{children}</body>
-      </html>
-    </ThemeProvider>
+      </Provider>
+    </html>
   );
 }
