@@ -1,16 +1,20 @@
 import axios from "axios";
 import isRefreshToken from "../common/isRefreshToken";
-import { useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const baseURL = process.env.NEXT_PUBLIC_SERVER_URL;
 const api = axios.create({
   baseURL: baseURL,
 });
 
-export default async function isLogin(email: string, pw: string) {
+export default async function isLogin(
+  email: string,
+  pw: string,
+  router: AppRouterInstance
+) {
   try {
     const response = await api.post("/auth/signIn", {
-      refreshToken: email,
+      email: email,
       password: pw,
     });
 
@@ -27,7 +31,7 @@ export default async function isLogin(email: string, pw: string) {
       });
       if (data.role === "ROLE_ADMIN") {
         alert("로그인에 성공하셨습니다.");
-        useRouter().push("/inquiry");
+        router.push("/inquiry");
       } else {
         alert("관리자 계정이 아닙니다.");
       }
@@ -35,9 +39,7 @@ export default async function isLogin(email: string, pw: string) {
       alert("등록되지 않은 회원입니다.");
     }
   } catch (error: any) {
-    if (error.response && error.response.status === 403) {
-      alert("접근 권한이 없습니다.");
-    } else if (error.response && error.response.status === 401) {
+    if (error.response && error.response.status === 401) {
       try {
         await isRefreshToken();
 
@@ -55,7 +57,7 @@ export default async function isLogin(email: string, pw: string) {
       } catch (refreshError) {
         alert("토큰 갱신 및 로그인 실패");
       }
-    } else {
+    } else if (error.response && error.response.status === 404) {
       alert("이메일 또는 비밀번호가 일치하지 않습니다.");
     }
   }

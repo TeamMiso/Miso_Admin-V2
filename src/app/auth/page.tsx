@@ -3,8 +3,11 @@
 import { ChangeEvent, useState } from "react";
 import * as S from "./style";
 import isLogin from "@/api/auth/isLogin";
+import { useRouter } from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState<string>("");
   const [pw, setPw] = useState<string>("");
   const [emailValid, setEmailValid] = useState<boolean>(false);
@@ -30,8 +33,8 @@ export default function LoginPage() {
     }
   };
 
-  const handleLoginClick = () => {
-    isLogin(email, pw);
+  const handleLoginClick = (router: AppRouterInstance) => {
+    isLogin(email, pw, router);
   };
 
   return (
@@ -66,7 +69,9 @@ export default function LoginPage() {
               )}
             </S.ErrorMessageWrap>
           </S.InputContainer>
-          <S.LoginButton onClick={handleLoginClick}>로그인</S.LoginButton>
+          <S.LoginButton onClick={() => handleLoginClick(router)}>
+            로그인
+          </S.LoginButton>
         </S.LoginWrapper>
       </S.LoginContainer>
     </S.LoginPageWrapper>

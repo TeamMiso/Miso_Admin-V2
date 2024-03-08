@@ -3,5 +3,5 @@
 import * as S from "./style";
 
 export default function LoginPage() {
-  return <S.InquiryWrapper></S.InquiryWrapper>;
+  return <S.InquiryWrapper>inquiry</S.InquiryWrapper>;
 }
