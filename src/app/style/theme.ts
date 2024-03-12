@@ -9,7 +9,7 @@ const color = {
     "100": "#1A1A1A",
     "200": "#333333",
     "300": "#4D4D4D",
-    "400": "#666666",
+    "400": "#6B6B6B",
     "500": "#808080",
     "600": "#999999",
     "700": "#BFBFBF",
@@ -170,6 +170,108 @@ const typo = {
     regular: {
       fontSize: "0.625rem",
       lineHeight: "160%",
+      fontWeight: "400",
+    },
+    text_lg: {
+      extrabold: {
+        fontSize: "1.5rem",
+        lineHeight: "160%",
+        fontWeight: "800",
+      },
+      semibold: {
+        fontSize: "1.5rem",
+        lineHeight: "160%",
+        fontWeight: "600",
+      },
+      regular: {
+        fontSize: "1.5rem",
+        lineHeight: "160%",
+        fontWeight: "400",
+      },
+    },
+    text_md: {
+      extrabold: {
+        fontSize: "1.25rem",
+        lineHeight: "160%",
+        fontWeight: "800",
+      },
+      semibold: {
+        fontSize: "1.25rem",
+        lineHeight: "160%",
+        fontWeight: "600",
+      },
+      regular: {
+        fontSize: "1.25rem",
+        lineHeight: "160%",
+        fontWeight: "400",
+      },
+    },
+    text_sm: {
+      extrabold: {
+        fontSize: "0.875rem",
+        lineHeight: "160%",
+        fontWeight: "800",
+      },
+      semibold: {
+        fontSize: "0.875rem",
+        lineHeight: "160%",
+        fontWeight: "600",
+      },
+      regular: {
+        fontSize: "0.875rem",
+        lineHeight: "160%",
+        fontWeight: "400",
+      },
+    },
+  },
+  btn_lg: {
+    extrabold: {
+      fontSize: "1rem",
+      lineHeight: "250%",
+      fontWeight: "800",
+    },
+    semibold: {
+      fontSize: "1rem",
+      lineHeight: "250%",
+      fontWeight: "600",
+    },
+    regular: {
+      fontSize: "1rem",
+      lineHeight: "250%",
+      fontWeight: "400",
+    },
+  },
+  btn_md: {
+    extrabold: {
+      fontSize: "1rem",
+      lineHeight: "200%",
+      fontWeight: "800",
+    },
+    semibold: {
+      fontSize: "1em",
+      lineHeight: "200%",
+      fontWeight: "600",
+    },
+    regular: {
+      fontSize: "1rem",
+      lineHeight: "200%",
+      fontWeight: "400",
+    },
+  },
+  btn_sm: {
+    extrabold: {
+      fontSize: "1rem",
+      lineHeight: "250%",
+      fontWeight: "800",
+    },
+    semibold: {
+      fontSize: "1rem",
+      lineHeight: "250%",
+      fontWeight: "600",
+    },
+    regular: {
+      fontSize: "1rem",
+      lineHeight: "250%",
       fontWeight: "400",
     },
   },
