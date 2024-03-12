@@ -3,6 +3,7 @@ import isRefreshToken from "../common/isRefreshToken";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 const baseURL = process.env.NEXT_PUBLIC_SERVER_URL;
+
 const api = axios.create({
   baseURL: baseURL,
 });
