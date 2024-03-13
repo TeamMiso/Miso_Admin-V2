@@ -33,7 +33,7 @@ export default async function isLogin(
       });
       if (data.role === "ROLE_ADMIN") {
         toast.success("로그인에 성공하셨습니다.");
-        router.push("/inquiry");
+        router.push("/");
       } else {
         toast.error("관리자 계정이 아닙니다.");
       }
