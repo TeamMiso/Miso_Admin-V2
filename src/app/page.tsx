@@ -2,15 +2,25 @@
 
 import { Header } from "@/components";
 import * as S from "./style";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import isCheckToken from "@/api/common/isCheckToken";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function InquiryPage() {
   const router = useRouter();
+  const [inquiryData, setInquiryData] = useState<any>(null);
 
   useEffect(() => {
-    isCheckToken(router);
+    async function fetchData() {
+      try {
+        const data = await isCheckToken(router);
+        setInquiryData(data);
+      } catch (error) {
+        console.error("조회 데이터를 가져오는 중 오류 발생:", error);
+      }
+    }
+
+    fetchData();
   }, []);
 
   return (
