@@ -25,7 +25,9 @@ const Modal = ({
 
   return (
     <S.ModalBackground
-      style={{ display: isOpen ? "block" : "none" }}
+      display={match(isOpen)
+        .with(true, () => "block")
+        .otherwise(() => "none")}
       onClick={closeModal}
     >
       <S.ModalWrapper>

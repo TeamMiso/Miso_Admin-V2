@@ -4,6 +4,7 @@ import { InquiryItemType } from "@/types";
 import * as S from "./style";
 import { match } from "ts-pattern";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const InquiryItem = ({
   id,
@@ -11,11 +12,34 @@ const InquiryItem = ({
   title,
   imageUrl,
   inquiryStatus,
+  isReviewChecked,
+  isAnswerChecked,
 }: InquiryItemType) => {
   const router = useRouter();
+  const [display, setDisplay] = useState<string>("flex");
+
+  useEffect(() => {
+    setDisplay(
+      match(inquiryStatus)
+        .with("WAIT", () => {
+          return match(isReviewChecked)
+            .with(true, () => "flex")
+            .otherwise(() => "none");
+        })
+        .with("COMPLETE", () => {
+          return match(isAnswerChecked)
+            .with(true, () => "flex")
+            .otherwise(() => "none");
+        })
+        .otherwise(() => "flex")
+    );
+  }, [inquiryStatus, isReviewChecked, isAnswerChecked]);
 
   return (
-    <S.InquiryItemWrapper onClick={() => router.push(`/inquiry/detail`)}>
+    <S.InquiryItemWrapper
+      onClick={() => router.push(`/inquiry/detail`)}
+      display={display}
+    >
       <S.TextArea>
         <S.SubTitle>
           <S.Date>

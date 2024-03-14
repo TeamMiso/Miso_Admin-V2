@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const InquiryItemWrapper = styled.div`
+export const InquiryItemWrapper = styled.div<{ display: string }>`
+  display: ${({ display }) => display};
   box-sizing: border-box;
-  display: flex;
   justify-content: space-between;
   padding: 1.5rem 3.5rem;
   align-items: center;
@@ -38,11 +38,11 @@ export const Title = styled.span`
 `;
 
 export const ImageArea = styled.div<{ imageUrl: string }>`
-  width: 5rem;
-  height: 5rem;
-  border-radius: 0.5rem;
   background-image: url(${({ imageUrl }) => imageUrl});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
 `;
