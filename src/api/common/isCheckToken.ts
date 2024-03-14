@@ -8,15 +8,17 @@ const api = axios.create({
 
 export default async function isCheckToken(
   router: AppRouterInstance
-): Promise<void> {
+): Promise<any> {
   try {
     const { data } = await api.get("/inquiry/all", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     });
+    return data; // API에서 받은 데이터를 반환합니다.
   } catch (error: any) {
     router.push("/auth");
     toast.info("다시 로그인 해주세요.");
+    throw error; // 에러를 다시 던집니다.
   }
 }

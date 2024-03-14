@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const ModalBackground = styled.div`
+export const ModalBackground = styled.div<{ display: string }>`
   background-color: rgba(0, 0, 0, 0.35);
   position: fixed;
   top: 0;
   width: 100vw;
   height: 100vh;
+  display: ${({ display }) => display};
 `;
 
 export const ModalWrapper = styled.div`

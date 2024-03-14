@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const LoginPageWrapper = styled.div`
+  background-color: ${({ theme }) => theme.color.white};
   display: flex;
   justify-content: center;
   align-items: center;

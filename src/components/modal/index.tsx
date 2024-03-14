@@ -1,22 +1,11 @@
 import * as S from "./style";
-import { FC } from "react";
 import { match } from "ts-pattern";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 import isLogout from "@/api/auth/isLogout";
+import { ModalProps } from "@/types";
 
-interface ModalProps {
-  isOpen: boolean;
-  title: string;
-  content1: string;
-  content2: string;
-  button: string;
-  id: string;
-  mainText: string;
-  closeModal: () => void;
-}
-
-const Modal: FC<ModalProps> = ({
+const Modal = ({
   isOpen,
   title,
   content1,
@@ -25,7 +14,7 @@ const Modal: FC<ModalProps> = ({
   id,
   mainText,
   closeModal,
-}) => {
+}: ModalProps) => {
   const router = useRouter();
 
   const logoutHandler = (router: AppRouterInstance) => {
@@ -36,7 +25,9 @@ const Modal: FC<ModalProps> = ({
 
   return (
     <S.ModalBackground
-      style={{ display: isOpen ? "block" : "none" }}
+      display={match(isOpen)
+        .with(true, () => "block")
+        .otherwise(() => "none")}
       onClick={closeModal}
     >
       <S.ModalWrapper>
