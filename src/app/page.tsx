@@ -5,6 +5,7 @@ import * as S from "./style";
 import { useEffect, useState } from "react";
 import isCheckToken from "@/api/common/isCheckToken";
 import { useRouter } from "next/navigation";
+import { InquiryItem } from "@/components";
 
 export default function InquiryPage() {
   const router = useRouter();
@@ -31,6 +32,7 @@ export default function InquiryPage() {
           <S.Title>문의목록</S.Title>
           <S.FilterButton>필터</S.FilterButton>
         </S.InquiryMenu>
+        <InquiryItem />
       </S.InquiryList>
     </S.InquiryWrapper>
   );
