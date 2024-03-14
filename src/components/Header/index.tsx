@@ -3,7 +3,7 @@
 import { MisoIcon } from "@/assets/svg";
 import * as S from "./style";
 import { useState } from "react";
-import Modal from "../modal";
+import { Modal } from "@/components";
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
