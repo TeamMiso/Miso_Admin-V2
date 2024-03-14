@@ -4,4 +4,6 @@ export interface InquiryItemType {
   title: string;
   imageUrl: string;
   inquiryStatus: string;
+  isReviewChecked: boolean;
+  isAnswerChecked: boolean;
 }
