@@ -5,6 +5,11 @@ const color = {
   sub: "#45DFDA",
   error: "#DF454A",
 
+  status: {
+    APPROVED: "#25D07D",
+    WAIT: "#BFBFBF",
+  },
+
   gray: {
     "100": "#1A1A1A",
     "200": "#333333",
