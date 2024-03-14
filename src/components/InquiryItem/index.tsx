@@ -1,18 +1,42 @@
 "use client";
 
+import { InquiryItemType } from "@/types";
 import * as S from "./style";
+import { match } from "ts-pattern";
+import { useRouter } from "next/navigation";
 
-const InquiryItem = () => {
+const InquiryItem = ({
+  id,
+  inquiryDate,
+  title,
+  imageUrl,
+  inquiryStatus,
+}: InquiryItemType) => {
+  const router = useRouter();
+
   return (
-    <S.InquiryItemWrapper>
+    <S.InquiryItemWrapper onClick={() => router.push(`/inquiry/detail`)}>
       <S.TextArea>
         <S.SubTitle>
-          <S.Date>23.12.29</S.Date>
-          <S.Status>검토중</S.Status>
+          <S.Date>
+            {`${inquiryDate.slice(2, 4)}.${inquiryDate.slice(
+              5,
+              7
+            )}.${inquiryDate.slice(8, 10)}`}
+          </S.Date>
+          <S.Status
+            statusColor={match(inquiryStatus)
+              .with("WAIT", () => "WAIT")
+              .otherwise(() => "APPROVED")}
+          >
+            {match(inquiryStatus)
+              .with("WAIT", () => "검토 중")
+              .otherwise(() => "답변완료")}
+          </S.Status>
         </S.SubTitle>
-        <S.Title>유색 페트병이 등록되어 있지 않습니다.</S.Title>
+        <S.Title>{title}</S.Title>
       </S.TextArea>
-      <S.ImageArea></S.ImageArea>
+      <S.ImageArea imageUrl={imageUrl} />
     </S.InquiryItemWrapper>
   );
 };

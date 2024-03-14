@@ -4,9 +4,9 @@ export const InquiryItemWrapper = styled.div`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  padding: 0 3.5rem;
-  height: 8rem;
+  padding: 1.5rem 3.5rem;
   align-items: center;
+  cursor: pointer;
   &:hover {
     background-color: ${({ theme }) => theme.color.gray["900"]};
   }
@@ -29,17 +29,20 @@ export const Date = styled.span`
   color: ${({ theme }) => theme.color.gray["300"]};
 `;
 
-export const Status = styled.span`
-  color: ${({ theme }) => theme.color.gray["700"]};
+export const Status = styled.span<{ statusColor: string }>`
+  color: ${({ theme, statusColor }) => theme.color.status[statusColor]};
 `;
 
 export const Title = styled.span`
   ${({ theme }) => theme.typo.text_lg.semibold};
 `;
 
-export const ImageArea = styled.div`
+export const ImageArea = styled.div<{ imageUrl: string }>`
   width: 5rem;
   height: 5rem;
   border-radius: 0.5rem;
-  background-color: gray;
+  background-image: url(${({ imageUrl }) => imageUrl});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
