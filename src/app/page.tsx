@@ -26,6 +26,12 @@ export default function InquiryPage() {
   return (
     <S.InquiryWrapper>
       <Header />
+      <S.InquiryList>
+        <S.InquiryMenu>
+          <S.Title>문의목록</S.Title>
+          <S.FilterButton>필터</S.FilterButton>
+        </S.InquiryMenu>
+      </S.InquiryList>
     </S.InquiryWrapper>
   );
 }
