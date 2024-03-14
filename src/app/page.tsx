@@ -7,14 +7,14 @@ import isCheckToken from "@/api/common/isCheckToken";
 import { useRouter } from "next/navigation";
 import { InquiryItem } from "@/components";
 import { InquiryItemType } from "@/types";
+import { match } from "ts-pattern";
 
 export default function InquiryPage() {
   const router = useRouter();
   const [inquiryItemList, setInquiryItemList] = useState<InquiryItemType[]>([]);
-
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-
-  console.log(isFilterOpen);
+  const [isReviewChecked, setIsReviewChecked] = useState(true);
+  const [isAnswerChecked, setIsAnswerChecked] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -47,10 +47,18 @@ export default function InquiryPage() {
               title={data.title}
               imageUrl={data.imageUrl}
               inquiryStatus={data.inquiryStatus}
+              isReviewChecked={isReviewChecked}
+              isAnswerChecked={isAnswerChecked}
             />
           ))}
       </S.InquiryList>
-      <Filter isOpen={isFilterOpen} />
+      <Filter
+        isOpen={isFilterOpen}
+        isReviewChecked={isReviewChecked}
+        setIsReviewChecked={setIsReviewChecked}
+        isAnswerChecked={isAnswerChecked}
+        setIsAnswerChecked={setIsAnswerChecked}
+      />
     </S.InquiryWrapper>
   );
 }

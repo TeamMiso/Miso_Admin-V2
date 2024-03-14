@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const FilterWrapper = styled.div<{ display: string }>`
+  display: ${({ display }) => display};
   right: 0;
   position: fixed;
   padding-top: 7.5rem;
   width: calc(50% - 40rem);
   height: 100vh;
-  display: ${({ display }) => display};
 `;
 
 export const FilterLayout = styled.div`
@@ -34,6 +34,7 @@ export const CheckMenu = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-top: 1rem;
+    cursor: pointer;
   }
 `;
 
@@ -43,7 +44,6 @@ export const CheckBox = styled.input`
   width: 1.5rem;
   height: 1.5rem;
   appearance: none;
-  cursor: pointer;
   &:checked {
     background-color: ${({ theme }) => theme.color.main};
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
