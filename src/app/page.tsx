@@ -7,7 +7,6 @@ import isCheckToken from "@/api/common/isCheckToken";
 import { useRouter } from "next/navigation";
 import { InquiryItem } from "@/components";
 import { InquiryItemType } from "@/types";
-import { match } from "ts-pattern";
 
 export default function InquiryPage() {
   const router = useRouter();
