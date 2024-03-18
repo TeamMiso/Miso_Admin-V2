@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AnswerWrapper = styled.div`
+export const AnswerInputWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -16,7 +16,7 @@ export const Title = styled.span`
 `;
 
 export const AnswerTextarea = styled.textarea`
-  ${({ theme }) => theme.typo.text_md.extrabold};
+  ${({ theme }) => theme.typo.text_md.regular};
   width: 100%;
   height: calc(100% - 8.5rem);
   resize: none;
@@ -26,6 +26,7 @@ export const AnswerTextarea = styled.textarea`
   }
   &::placeholder {
     color: ${({ theme }) => theme.color.gray["700"]};
+    ${({ theme }) => theme.typo.text_md.extrabold};
   }
 `;
 

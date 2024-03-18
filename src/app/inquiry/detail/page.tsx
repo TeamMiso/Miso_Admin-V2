@@ -1,6 +1,6 @@
 "use client";
 
-import { Header, Answer } from "@/components";
+import { Header, AnswerText, AnswerInput } from "@/components";
 import * as S from "./style";
 import { useRouter } from "next/navigation";
 
@@ -28,7 +28,7 @@ export default function DetailPage() {
           </S.MainText>
           <S.MainImage />
         </S.MainContainer>
-        <Answer />
+        <AnswerText />
       </S.DetailContainer>
     </S.DetailWrapper>
   );

@@ -1,13 +1,13 @@
 import * as S from "./style";
 
-const Answer = () => {
+const AnswerInput = () => {
   return (
-    <S.AnswerWrapper>
+    <S.AnswerInputWrapper>
       <S.Title>답변하기</S.Title>
       <S.AnswerTextarea placeholder="답변 내용 쓰기" />
       <S.AnswerButton>답변하기</S.AnswerButton>
-    </S.AnswerWrapper>
+    </S.AnswerInputWrapper>
   );
 };
 
-export default Answer;
+export default AnswerInput;
