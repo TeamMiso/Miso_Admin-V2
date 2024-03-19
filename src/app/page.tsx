@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import isCheckToken from "@/api/common/isCheckToken";
 import { useRouter } from "next/navigation";
 import { InquiryItem } from "@/components";
-import { InquiryItemType } from "@/types";
+import { InquiryItemTypes } from "@/types";
 
 export default function InquiryPage() {
   const router = useRouter();
-  const [inquiryItemList, setInquiryItemList] = useState<InquiryItemType[]>([]);
+  const [inquiryItemList, setInquiryItemList] = useState<InquiryItemTypes[]>(
+    []
+  );
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isReviewChecked, setIsReviewChecked] = useState(true);
   const [isAnswerChecked, setIsAnswerChecked] = useState(true);
