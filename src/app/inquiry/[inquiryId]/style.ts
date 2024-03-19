@@ -30,15 +30,15 @@ export const Title = styled.div`
   ${({ theme }) => theme.typo.title_md.extrabold}
 `;
 
-export const SemiTitle = styled.span`
+export const Date = styled.span`
+  color: ${({ theme }) => theme.color.gray["300"]};
   ${({ theme }) => theme.typo.text_lg.regular}
   margin-right: 0.5rem;
-  &:first-child {
-    color: ${({ theme }) => theme.color.gray["300"]};
-  }
-  &:last-child {
-    color: ${({ theme }) => theme.color.gray["700"]};
-  }
+`;
+
+export const Status = styled.span<{ statusColor: string }>`
+  color: ${({ theme, statusColor }) => theme.color.status[statusColor]};
+  ${({ theme }) => theme.typo.text_lg.regular}
 `;
 
 export const MainContainer = styled.div`
@@ -56,9 +56,9 @@ export const MainText = styled.div`
   max-width: 45rem;
 `;
 
-export const MainImage = styled.div`
+export const MainImage = styled.div<{ imageUrl: string }>`
+  background-image: url(${({ imageUrl }) => imageUrl});
   border-radius: 0.5rem;
-  background-color: red;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
