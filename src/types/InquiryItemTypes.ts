@@ -1,4 +1,4 @@
-export interface InquiryItemType {
+export interface InquiryItemProps {
   id: any;
   inquiryDate: any;
   title: string;

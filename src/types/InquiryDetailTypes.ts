@@ -1,4 +1,4 @@
-export interface InquiryDetailTypes {
+export interface InquiryDetailProps {
   id: number;
   inquiryDate: string;
   title: string;
