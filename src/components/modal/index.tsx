@@ -1,9 +1,9 @@
 import * as S from "./style";
 import { match } from "ts-pattern";
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { useRouter } from "next/navigation";
 import isLogout from "@/api/auth/isLogout";
 import { ModalProps } from "@/types";
+import isAnswering from "@/api/inquiry/isAnswering";
 
 const Modal = ({
   isOpen,
@@ -17,8 +17,12 @@ const Modal = ({
 }: ModalProps) => {
   const router = useRouter();
 
-  const logoutHandler = (router: AppRouterInstance) => {
-    isLogout(router);
+  const logoutHandler = () => {
+    isLogout(router).then(() => closeModal());
+  };
+
+  const accessHandler = () => {
+    isAnswering(router, id, mainText).then(() => closeModal());
   };
 
   return (
@@ -37,11 +41,10 @@ const Modal = ({
         <S.ButtonContainer>
           <S.ButtonText onClick={closeModal}>돌아가기</S.ButtonText>
           <S.ButtonText
-            onClick={
-              // match(button)
-              // .with("로그아웃", () => logoutHandler(router))
-              // .otherwise(() => accessHandler())
-              () => logoutHandler(router)
+            onClick={() =>
+              match(button)
+                .with("로그아웃", () => logoutHandler())
+                .otherwise(() => accessHandler())
             }
           >
             {button}

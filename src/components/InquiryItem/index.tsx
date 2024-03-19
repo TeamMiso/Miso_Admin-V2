@@ -1,6 +1,6 @@
 "use client";
 
-import { InquiryItemType } from "@/types";
+import { InquiryItemTypes } from "@/types";
 import * as S from "./style";
 import { match } from "ts-pattern";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,7 @@ const InquiryItem = ({
   inquiryStatus,
   isReviewChecked,
   isAnswerChecked,
-}: InquiryItemType) => {
+}: InquiryItemTypes) => {
   const router = useRouter();
   const [display, setDisplay] = useState<string>("flex");
 
