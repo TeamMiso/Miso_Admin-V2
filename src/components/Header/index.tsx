@@ -27,7 +27,7 @@ const Header = () => {
         content1={"정말로 로그아웃 하시겠습니까?"}
         content2={""}
         button={"로그아웃"}
-        id={""}
+        id={0}
         mainText={""}
       />
     </S.HeaderWrapper>

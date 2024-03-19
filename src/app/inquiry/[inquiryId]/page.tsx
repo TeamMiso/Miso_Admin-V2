@@ -67,7 +67,7 @@ export default function DetailPage() {
           <S.MainImage imageUrl={inquiryDetail.imageUrl} />
         </S.MainContainer>
         {match(inquiryDetail.inquiryStatus)
-          .with("WAIT", () => <AnswerInput />)
+          .with("WAIT", () => <AnswerInput id={inquiryDetail.id} />)
           .otherwise(() => (
             <AnswerText content={inquiryDetail.content} />
           ))}

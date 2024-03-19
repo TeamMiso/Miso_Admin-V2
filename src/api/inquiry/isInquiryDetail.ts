@@ -8,7 +8,7 @@ const api = axios.create({
 
 export default async function isInquiryDetail(
   router: AppRouterInstance,
-  id: string
+  id: number
 ): Promise<any> {
   try {
     const { data } = await api.get(`/inquiry/${id}`, {
