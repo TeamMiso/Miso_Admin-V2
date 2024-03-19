@@ -1,6 +1,6 @@
-export interface InquiryItemProps {
-  id: any;
-  inquiryDate: any;
+export interface InquiryItemTypes {
+  id: number;
+  inquiryDate: string;
   title: string;
   imageUrl: string;
   inquiryStatus: string;
