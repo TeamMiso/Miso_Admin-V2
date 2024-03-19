@@ -19,7 +19,7 @@ export default function DetailPage() {
     inquiryStatus: "",
   });
   const pathname = usePathname();
-  const id = pathname.slice(9);
+  const id = Number(pathname.slice(9));
 
   useEffect(() => {
     async function fetchData() {
