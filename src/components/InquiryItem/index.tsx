@@ -37,7 +37,7 @@ const InquiryItem = ({
 
   return (
     <S.InquiryItemWrapper
-      onClick={() => router.push(`/inquiry/detail`)}
+      onClick={() => router.push(`/inquiry/${id}`)}
       display={display}
     >
       <S.TextArea>

@@ -21,8 +21,6 @@ const Modal = ({
     isLogout(router);
   };
 
-  const accessHandler = () => {};
-
   return (
     <S.ModalBackground
       display={match(isOpen)
