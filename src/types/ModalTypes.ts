@@ -4,7 +4,7 @@ export interface ModalProps {
   content1: string;
   content2: string;
   button: string;
-  id: string;
+  id: number;
   mainText: string;
   closeModal: () => void;
 }

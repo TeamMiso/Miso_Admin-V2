@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./styles/globals.css";
 import Provider from "./provider";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import "./styles/globals.css";
+import "./styles/font.css";
 
 export const metadata: Metadata = {
   title: "Miso Admin",
@@ -22,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Provider>
           {children}
           <ToastContainer position="top-right" theme="light" autoClose={1500} />

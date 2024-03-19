@@ -6,11 +6,12 @@ const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
 });
 
-export default async function isCheckToken(
-  router: AppRouterInstance
+export default async function isInquiryDetail(
+  router: AppRouterInstance,
+  id: number
 ): Promise<any> {
   try {
-    const { data } = await api.get("/inquiry/all", {
+    const { data } = await api.get(`/inquiry/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
