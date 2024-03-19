@@ -28,7 +28,7 @@ export default async function isAnswering(
         },
       }
     );
-    router.push("/");
+    router.push(`/inquiry/complete/${id}`);
 
     return response.data;
   } catch (error) {
