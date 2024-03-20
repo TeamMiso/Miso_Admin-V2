@@ -19,7 +19,7 @@ export const MenuContainer = styled.div`
 `;
 
 export const IconBox = styled.div`
-  ${({ theme }) => theme.typo.title_lg.medium}
+  ${({ theme }) => theme.typo.text_md.semibold}
   color: ${({ theme }) => theme.color.green["500"]};
   display: flex;
   justify-content: center;
@@ -27,12 +27,12 @@ export const IconBox = styled.div`
 `;
 
 export const LogOutButton = styled.div`
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray["700"]};
-  color: ${({ theme }) => theme.color.gray["700"]};
-  ${({ theme }) => theme.typo.text_lg.extrabold};
+  background-color: ${({ theme }) => theme.color.red["800"]};
+  color: ${({ theme }) => theme.color.error};
+  ${({ theme }) => theme.typo.caption.semibold};
   border-radius: 0.5rem;
-  width: 7.5rem;
-  height: 3.5rem;
+  width: 4.625rem;
+  height: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
