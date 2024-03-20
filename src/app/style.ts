@@ -15,26 +15,29 @@ export const InquiryList = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  padding: 1.75rem;
+  padding: 0 1.75rem;
 `;
 
 export const InquiryMenu = styled.span`
   box-sizing: border-box;
   width: 100%;
-  margin-top: 7rem;
-  padding: 0 2.5rem;
+  margin: 7rem 0 0.75rem 0.65rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
 `;
 
 export const Title = styled.span`
-  ${({ theme }) => theme.typo.title_md.extrabold}
+  ${({ theme }) => theme.typo.text_lg.extrabold}
+  margin-right: 1rem;
 `;
 
-export const FilterButton = styled.span`
-  ${({ theme }) => theme.typo.text_lg.regular}
-  color: ${({ theme }) => theme.color.main};
+export const FilterButton = styled.div`
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  span {
+    ${({ theme }) => theme.typo.text_sm.regular}
+    color: ${({ theme }) => theme.color.main};
+    margin-left: 0.25rem;
+  }
 `;
