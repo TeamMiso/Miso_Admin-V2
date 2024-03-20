@@ -7,6 +7,7 @@ import isCheckToken from "@/api/common/isCheckToken";
 import { useRouter } from "next/navigation";
 import { InquiryItem } from "@/components";
 import { InquiryItemTypes } from "@/types";
+import { FilterIcon } from "@/assets";
 
 export default function InquiryPage() {
   const router = useRouter();
@@ -37,7 +38,8 @@ export default function InquiryPage() {
         <S.InquiryMenu>
           <S.Title>문의목록</S.Title>
           <S.FilterButton onClick={() => setIsFilterOpen(!isFilterOpen)}>
-            필터
+            <FilterIcon />
+            <span>필터</span>
           </S.FilterButton>
         </S.InquiryMenu>
         {inquiryItemList.length > 0 &&

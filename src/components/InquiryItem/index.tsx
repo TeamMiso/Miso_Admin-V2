@@ -40,6 +40,7 @@ const InquiryItem = ({
       onClick={() => router.push(`/inquiry/${id}`)}
       display={display}
     >
+      <S.ImageArea imageUrl={imageUrl} />
       <S.TextArea>
         <S.SubTitle>
           <S.Date>
@@ -60,7 +61,6 @@ const InquiryItem = ({
         </S.SubTitle>
         <S.Title>{title}</S.Title>
       </S.TextArea>
-      <S.ImageArea imageUrl={imageUrl} />
     </S.InquiryItemWrapper>
   );
 };
