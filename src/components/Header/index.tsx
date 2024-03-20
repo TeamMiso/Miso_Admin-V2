@@ -16,7 +16,7 @@ const Header = () => {
       <S.MenuContainer>
         <S.IconBox>
           <MisoIcon />
-          MISO
+           <span>MISO</span>
         </S.IconBox>
         <S.LogOutButton onClick={openModal}>로그아웃</S.LogOutButton>
       </S.MenuContainer>
