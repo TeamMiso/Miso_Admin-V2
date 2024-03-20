@@ -9,11 +9,13 @@ export const InquiryWrapper = styled.div`
 export const InquiryList = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   border: solid ${({ theme }) => theme.color.gray["700"]};
-  width: 80rem;
+  width: 80.125rem;
   min-height: 100vh;
   border-width: 0 0.0625rem;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 1.75rem;
 `;
 
 export const InquiryMenu = styled.span`
