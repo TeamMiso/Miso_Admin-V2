@@ -1,6 +1,6 @@
 "use client";
 
-import Check from "@/assets/svg/Check";
+import { Check } from "@/assets/svg";
 import * as S from "./style";
 import { Header } from "@/components";
 import { usePathname, useRouter } from "next/navigation";

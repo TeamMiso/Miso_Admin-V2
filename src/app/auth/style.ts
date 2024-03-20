@@ -1,7 +1,11 @@
+import { StaticImageData } from "next/image";
 import styled from "styled-components";
 
-export const LoginPageWrapper = styled.div`
-  background-color: ${({ theme }) => theme.color.white};
+export const LoginPageWrapper = styled.div<{ imgUrl: StaticImageData }>`
+  background-image: url(${({ imgUrl }) => imgUrl.src});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,6 +14,7 @@ export const LoginPageWrapper = styled.div`
 
 export const LoginContainer = styled.div`
   border: 0.0625rem solid ${({ theme }) => theme.color.gray["700"]};
+  background-color: ${({ theme }) => theme.color.white};
   border-radius: 0.5rem;
   width: 27rem;
   height: 35rem;

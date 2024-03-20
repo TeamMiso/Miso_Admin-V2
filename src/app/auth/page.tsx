@@ -5,6 +5,7 @@ import * as S from "./style";
 import isLogin from "@/api/auth/isLogin";
 import { useRouter } from "next/navigation";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { Background } from "@/assets";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function LoginPage() {
   };
 
   return (
-    <S.LoginPageWrapper>
+    <S.LoginPageWrapper imgUrl={Background}>
       <S.LoginContainer>
         <S.LoginWrapper>
           <S.TitleContainer>
