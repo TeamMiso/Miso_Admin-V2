@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { InquiryItem } from "@/components";
 import { InquiryItemTypes } from "@/types";
 import { FilterIcon } from "@/assets";
+import { match } from "ts-pattern";
 
 export default function InquiryPage() {
   const router = useRouter();
@@ -37,7 +38,15 @@ export default function InquiryPage() {
       <S.InquiryList>
         <S.InquiryMenu>
           <S.Title>문의목록</S.Title>
-          <S.FilterButton onClick={() => setIsFilterOpen(!isFilterOpen)}>
+          <S.FilterButton
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            isFilterOpen={match(isFilterOpen)
+              .with(true, () => "APPROVED")
+              .otherwise(() => "white")}
+            color={match(isFilterOpen)
+              .with(true, () => "white")
+              .otherwise(() => "main")}
+          >
             <FilterIcon />
             <span>필터</span>
           </S.FilterButton>

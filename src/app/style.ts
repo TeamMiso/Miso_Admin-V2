@@ -22,12 +22,13 @@ export const InquiryList = styled.div`
 export const InquiryMenu = styled.span`
   display: flex;
   width: 100%;
-  margin-top: 5.25rem;
+  margin-top: 6.25rem;
 `;
 
 export const InquiryItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-top: 1rem;
   @media screen and (max-width: 80rem) {
     width: 57.25rem;
   }
@@ -44,13 +45,20 @@ export const Title = styled.span`
   margin-right: 1rem;
 `;
 
-export const FilterButton = styled.div`
+export const FilterButton = styled.div<{ isFilterOpen: string; color: string }>`
+  background-color: ${({ theme, isFilterOpen }) =>
+    theme.color.status[isFilterOpen]};
   cursor: pointer;
   display: flex;
   align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   span {
     ${({ theme }) => theme.typo.text_sm.regular}
-    color: ${({ theme }) => theme.color.main};
+    color: ${({ theme, color }) => theme.color[color]};
     margin-left: 0.25rem;
+  }
+  svg {
+    fill: ${({ theme, color }) => theme.color[color]};
   }
 `;
