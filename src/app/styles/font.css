@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "SUIT-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+    format("woff2");
+  font-family: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUIT-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2")
+    format("woff2");
+  font-family: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUIT-SemiBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2")
+    format("woff2");
+  font-family: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SUIT-ExtraBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2")
+    format("woff2");
+  font-family: 400;
+  font-style: normal;
+}
