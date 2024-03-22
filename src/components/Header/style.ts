@@ -6,7 +6,6 @@ export const HeaderWrapper = styled.div`
   position: fixed;
   display: flex;
   justify-content: center;
-  z-index: 1;
 `;
 
 export const MenuContainer = styled.div`

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const InquiryItemWrapper = styled.div<{ display: string }>`
-  border: 0.0625rem solid ${({ theme }) => theme.color.gray["800"]};
   display: ${({ display }) => display};
   width: 17.5rem;
   height: 15rem;
   cursor: pointer;
   border-radius: 1rem;
+  border: 0.0625rem solid ${({ theme }) => theme.color.gray["800"]};
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
