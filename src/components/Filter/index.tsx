@@ -1,7 +1,6 @@
 import { FilterProps } from "@/types";
 import * as S from "./style";
 import { match } from "ts-pattern";
-import { SmallCheck } from "@/assets";
 
 const Filter = ({
   isOpen,
@@ -11,39 +10,27 @@ const Filter = ({
   setIsAnswerChecked,
 }: FilterProps) => {
   return (
-    <S.FilterContainer
+    <S.FilterWrapper
       display={match(isOpen)
         .with(true, () => "block")
         .otherwise(() => "none")}
     >
-      <S.Title>답변 상태</S.Title>
-      <S.CheckMenu>
-        <S.ReviewBox
-          onClick={() => setIsReviewChecked(!isReviewChecked)}
-          checkedColor={match(isReviewChecked)
-            .with(true, () => "APPROVED")
-            .otherwise(() => "WAIT")}
-          fontWeight={match(isReviewChecked)
-            .with(true, () => "extrabold")
-            .otherwise(() => "semibold")}
-        >
-          <SmallCheck />
-          <span>검토 중</span>
-        </S.ReviewBox>
-        <S.AnswerBox
-          onClick={() => setIsAnswerChecked(!isAnswerChecked)}
-          checkedColor={match(isAnswerChecked)
-            .with(true, () => "APPROVED")
-            .otherwise(() => "WAIT")}
-          fontWeight={match(isAnswerChecked)
-            .with(true, () => "extrabold")
-            .otherwise(() => "semibold")}
-        >
-          <SmallCheck />
-          <span>답변 완료</span>
-        </S.AnswerBox>
-      </S.CheckMenu>
-    </S.FilterContainer>
+      <S.FilterLayout>
+        <S.FilterContainer>
+          <S.Title>게시글 상태</S.Title>
+          <S.CheckMenu>
+            <div onClick={() => setIsReviewChecked(!isReviewChecked)}>
+              <span>검토 중</span>
+              <S.CheckBox type="checkbox" checked={isReviewChecked} />
+            </div>
+            <div onClick={() => setIsAnswerChecked(!isAnswerChecked)}>
+              <span>답변 완료</span>
+              <S.CheckBox type="checkbox" checked={isAnswerChecked} />
+            </div>
+          </S.CheckMenu>
+        </S.FilterContainer>
+      </S.FilterLayout>
+    </S.FilterWrapper>
   );
 };
 

@@ -1,63 +1,40 @@
 import styled from "styled-components";
 
-export const FilterContainer = styled.div<{ display: string }>`
+export const FilterWrapper = styled.div<{ display: string }>`
   display: ${({ display }) => display};
+  right: 0;
+  position: fixed;
+  padding-top: 7.5rem;
+  width: calc(50% - 40rem);
+  height: 100vh;
+`;
+
+export const FilterLayout = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const FilterContainer = styled.div`
   border: 0.0625rem solid ${({ theme }) => theme.color.gray["700"]};
   background-color: ${({ theme }) => theme.color.white};
   border-radius: 0.5rem;
   width: 10rem;
-  padding: 1rem;
-  box-sizing: border-box;
-  left: calc(50% - 32.125rem);
-  position: absolute;
-  margin-top: 9.25rem;
-  z-index: 0;
-  @media screen and (max-width: 80.125rem) {
-    left: 8rem;
-  }
+  padding: 0.5rem;
 `;
 
 export const Title = styled.span`
-  ${({ theme }) => theme.typo.text_sm.semibold};
+  ${({ theme }) => theme.typo.text_md.semibold};
 `;
 
 export const CheckMenu = styled.div`
-  margin-top: 1rem;
   div {
     flex-wrap: wrap;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
     cursor: pointer;
-  }
-  svg {
-    margin-right: 0.5rem;
-  }
-`;
-
-export const ReviewBox = styled.div<{
-  checkedColor: string;
-  fontWeight: string;
-}>`
-  color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
-  margin-bottom: 0.5rem;
-  svg {
-    fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
-  }
-  span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
-  }
-`;
-
-export const AnswerBox = styled.div<{
-  checkedColor: string;
-  fontWeight: string;
-}>`
-  color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
-  svg {
-    fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
-  }
-  span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
   }
 `;
 

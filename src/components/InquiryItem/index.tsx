@@ -1,3 +1,5 @@
+"use client";
+
 import { InquiryItemTypes } from "@/types";
 import * as S from "./style";
 import { match } from "ts-pattern";
@@ -32,9 +34,6 @@ const InquiryItem = ({
         .otherwise(() => "flex")
     );
   }, [inquiryStatus, isReviewChecked, isAnswerChecked]);
-
-  if (!isReviewChecked && inquiryStatus === "WAIT") return null;
-  if (!isAnswerChecked && inquiryStatus === "COMPLETE") return null;
 
   return (
     <S.InquiryItemWrapper

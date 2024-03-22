@@ -18,13 +18,42 @@ export const DetailContainer = styled.div`
   padding: 7rem 2.5rem 0 2.5rem;
 `;
 
+export const BackText = styled.span`
+  color: ${({ theme }) => theme.color.main};
+  ${({ theme }) => theme.typo.text_md.semibold}
+  cursor: pointer;
+  width: fit-content;
+  margin-bottom: 1rem;
+`;
+
+export const Title = styled.div`
+  ${({ theme }) => theme.typo.title_md.extrabold}
+`;
+
+export const Date = styled.span`
+  color: ${({ theme }) => theme.color.gray["300"]};
+  ${({ theme }) => theme.typo.text_lg.regular}
+  margin-right: 0.5rem;
+`;
+
+export const Status = styled.span<{ statusColor: string }>`
+  color: ${({ theme, statusColor }) => theme.color.status[statusColor]};
+  ${({ theme }) => theme.typo.text_lg.regular}
+`;
+
 export const MainContainer = styled.div`
   ${({ theme }) => theme.typo.text_md.regular}
+  color: ${({ theme }) => theme.color.gray["300"]};
   border-bottom: solid 0.0625rem #bfbfbf;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2.5rem 0;
-  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
+`;
+
+export const MainText = styled.div`
+  max-width: 45rem;
 `;
 
 export const MainImage = styled.div<{ imageUrl: string }>`
@@ -35,25 +64,4 @@ export const MainImage = styled.div<{ imageUrl: string }>`
   background-size: cover;
   width: 26.25rem;
   height: 17.5rem;
-  margin-right: 1rem;
-`;
-
-export const Title = styled.div`
-  ${({ theme }) => theme.typo.text_lg.semibold}
-  color: ${({ theme }) => theme.color.black};
-`;
-
-export const Date = styled.span`
-  color: ${({ theme }) => theme.color.gray["300"]};
-  ${({ theme }) => theme.typo.text_md.regular}
-  margin-right: 0.5rem;
-`;
-
-export const Status = styled.span<{ statusColor: string }>`
-  color: ${({ theme, statusColor }) => theme.color.status[statusColor]};
-  ${({ theme }) => theme.typo.text_md.regular}
-`;
-
-export const MainText = styled.div`
-  max-width: 45rem;
 `;
