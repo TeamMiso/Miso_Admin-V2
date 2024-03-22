@@ -12,11 +12,11 @@ export const AnswerInputWrapper = styled.div`
 
 export const Title = styled.span`
   width: 100%;
-  ${({ theme }) => theme.typo.text_lg.extrabold};
+  ${({ theme }) => theme.typo.text_md.extrabold};
 `;
 
 export const AnswerTextarea = styled.textarea`
-  ${({ theme }) => theme.typo.text_md.regular};
+  ${({ theme }) => theme.typo.text_sm.regular};
   width: 100%;
   height: calc(100% - 8.5rem);
   resize: none;
@@ -26,7 +26,7 @@ export const AnswerTextarea = styled.textarea`
   }
   &::placeholder {
     color: ${({ theme }) => theme.color.gray["700"]};
-    ${({ theme }) => theme.typo.text_md.extrabold};
+    ${({ theme }) => theme.typo.text_sm.semibold};
   }
 `;
 
