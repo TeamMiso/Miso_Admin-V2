@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import Provider from "./provider";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./styles/globals.css";
-import "./styles/font.css";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Miso Admin",
   description: "미소의 관리자 전용 페이지입니다.",
   icons: {
-    icon: "./favicon.ico",
+    icon: "../../public/next.svg",
   },
 };
 
@@ -20,12 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Provider>
-          {children}
-          <ToastContainer position="top-right" theme="light" autoClose={1500} />
-        </Provider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
