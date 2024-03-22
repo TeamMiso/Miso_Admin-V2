@@ -38,33 +38,32 @@ export default function DetailPage() {
     <S.DetailWrapper>
       <Header />
       <S.DetailContainer>
-        <S.BackText onClick={() => router.push("/")}>{"< 돌아가기"}</S.BackText>
-        <div>
-          <S.Title>{inquiryDetail.title}</S.Title>
-          <div>
-            <S.Date>
-              {`${inquiryDetail.inquiryDate.slice(
-                2,
-                4
-              )}.${inquiryDetail.inquiryDate.slice(
-                5,
-                7
-              )}.${inquiryDetail.inquiryDate.slice(8, 10)}`}
-            </S.Date>
-            <S.Status
-              statusColor={match(inquiryDetail.inquiryStatus)
-                .with("WAIT", () => "WAIT")
-                .otherwise(() => "APPROVED")}
-            >
-              {match(inquiryDetail.inquiryStatus)
-                .with("WAIT", () => "검토 중")
-                .otherwise(() => "답변완료")}
-            </S.Status>
-          </div>
-        </div>
         <S.MainContainer>
-          <S.MainText>{inquiryDetail.content}</S.MainText>
           <S.MainImage imageUrl={inquiryDetail.imageUrl} />
+          <div>
+            <S.Title>{inquiryDetail.title}</S.Title>
+            <div>
+              <S.Date>
+                {`${inquiryDetail.inquiryDate.slice(
+                  2,
+                  4
+                )}.${inquiryDetail.inquiryDate.slice(
+                  5,
+                  7
+                )}.${inquiryDetail.inquiryDate.slice(8, 10)}`}
+              </S.Date>
+              <S.Status
+                statusColor={match(inquiryDetail.inquiryStatus)
+                  .with("WAIT", () => "WAIT")
+                  .otherwise(() => "APPROVED")}
+              >
+                {match(inquiryDetail.inquiryStatus)
+                  .with("WAIT", () => "검토 중")
+                  .otherwise(() => "답변완료")}
+              </S.Status>
+            </div>
+            <S.MainText>{inquiryDetail.content}</S.MainText>
+          </div>
         </S.MainContainer>
         {match(inquiryDetail.inquiryStatus)
           .with("WAIT", () => <AnswerInput id={inquiryDetail.id} />)
