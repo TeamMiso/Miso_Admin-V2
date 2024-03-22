@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import Provider from "./provider";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import "./styles/globals.css";
 import "./styles/font.css";
+import Provider from "./provider";
+import type { Metadata } from "next";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Miso Admin",
