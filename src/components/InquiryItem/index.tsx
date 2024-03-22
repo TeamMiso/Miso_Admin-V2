@@ -16,6 +16,8 @@ const InquiryItem = ({
   const router = useRouter();
   const [display, setDisplay] = useState<string>("flex");
 
+  console.log(display);
+
   useEffect(() => {
     setDisplay(
       match(inquiryStatus)

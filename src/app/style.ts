@@ -16,7 +16,7 @@ export const InquiryList = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   box-sizing: border-box;
-  align-content: flex-start;
+  align-content: center;
   padding: 0 1.75rem;
 `;
 
@@ -25,12 +25,12 @@ export const InquiryMenu = styled.span`
   width: 100%;
   margin-top: 6.25rem;
   height: fit-content;
+  padding: 0 0.75rem;
 `;
 
 export const InquiryItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
   @media screen and (max-width: 80rem) {
     width: 57.25rem;
   }
