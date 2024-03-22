@@ -32,7 +32,7 @@ export const InquiryItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   @media screen and (max-width: 80rem) {
-    width: 57.25rem;
+    width: 57.35rem;
   }
   @media screen and (max-width: 60rem) {
     width: 38.25rem;
