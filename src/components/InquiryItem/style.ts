@@ -7,10 +7,9 @@ export const InquiryItemWrapper = styled.div<{ display: string }>`
   height: 15rem;
   cursor: pointer;
   border-radius: 1rem;
-  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  margin: 0.75rem;
+  margin: 0.7425rem;
 `;
 
 export const ImageArea = styled.div<{ imageUrl: string }>`

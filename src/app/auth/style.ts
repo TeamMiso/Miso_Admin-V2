@@ -6,10 +6,17 @@ export const LoginPageWrapper = styled.div<{ imgUrl: StaticImageData }>`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+`;
+
+export const BackgroundCover = styled.div`
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  backdrop-filter: blur(0.25rem);
 `;
 
 export const LoginContainer = styled.div`
