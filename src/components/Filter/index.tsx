@@ -17,16 +17,15 @@ const Filter = ({
         .otherwise(() => "none")}
     >
       <S.Title>답변 상태</S.Title>
-      <S.CheckMenu
-        fontWeight={match(isReviewChecked)
-          .with(true, () => "extrabold")
-          .otherwise(() => "semibold")}
-      >
+      <S.CheckMenu>
         <S.ReviewBox
           onClick={() => setIsReviewChecked(!isReviewChecked)}
           checkedColor={match(isReviewChecked)
             .with(true, () => "APPROVED")
             .otherwise(() => "WAIT")}
+          fontWeight={match(isReviewChecked)
+            .with(true, () => "extrabold")
+            .otherwise(() => "semibold")}
         >
           <SmallCheck />
           <span>검토 중</span>
@@ -36,6 +35,9 @@ const Filter = ({
           checkedColor={match(isAnswerChecked)
             .with(true, () => "APPROVED")
             .otherwise(() => "WAIT")}
+          fontWeight={match(isAnswerChecked)
+            .with(true, () => "extrabold")
+            .otherwise(() => "semibold")}
         >
           <SmallCheck />
           <span>답변 완료</span>

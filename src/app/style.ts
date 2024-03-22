@@ -12,9 +12,6 @@ export const InquiryList = styled.div`
   width: 80.0625rem;
   min-height: 100vh;
   border-width: 0 0.0625rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   box-sizing: border-box;
   padding: 0 1.75rem;
 `;
@@ -23,12 +20,12 @@ export const InquiryMenu = styled.span`
   display: flex;
   width: 100%;
   margin-top: 6.25rem;
+  height: fit-content;
 `;
 
 export const InquiryItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-top: 1rem;
   @media screen and (max-width: 80rem) {
     width: 57.25rem;
   }
@@ -53,6 +50,7 @@ export const FilterButton = styled.div<{ isFilterOpen: string; color: string }>`
   align-items: center;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  height: fit-content;
   span {
     ${({ theme }) => theme.typo.text_sm.regular}
     color: ${({ theme, color }) => theme.color[color]};

@@ -21,7 +21,7 @@ export const Title = styled.span`
   ${({ theme }) => theme.typo.text_sm.semibold};
 `;
 
-export const CheckMenu = styled.div<{ fontWeight: string }>`
+export const CheckMenu = styled.div`
   margin-top: 1rem;
   div {
     flex-wrap: wrap;
@@ -32,23 +32,32 @@ export const CheckMenu = styled.div<{ fontWeight: string }>`
   svg {
     margin-right: 0.5rem;
   }
-  span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
-  }
 `;
 
-export const ReviewBox = styled.div<{ checkedColor: string }>`
+export const ReviewBox = styled.div<{
+  checkedColor: string;
+  fontWeight: string;
+}>`
   color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
   margin-bottom: 0.5rem;
   svg {
     fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
   }
+  span {
+    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
+  }
 `;
 
-export const AnswerBox = styled.div<{ checkedColor: string }>`
+export const AnswerBox = styled.div<{
+  checkedColor: string;
+  fontWeight: string;
+}>`
   color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
   svg {
     fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+  }
+  span {
+    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
   }
 `;
 
