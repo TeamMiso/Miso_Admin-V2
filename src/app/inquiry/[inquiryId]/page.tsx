@@ -63,8 +63,8 @@ export default function DetailPage() {
           </div>
         </div>
         <S.MainContainer>
-          <S.MainText>{inquiryDetail.content}</S.MainText>
           <S.MainImage imageUrl={inquiryDetail.imageUrl} />
+          <S.MainText>{inquiryDetail.content}</S.MainText>
         </S.MainContainer>
         {match(inquiryDetail.inquiryStatus)
           .with("WAIT", () => <AnswerInput id={inquiryDetail.id} />)

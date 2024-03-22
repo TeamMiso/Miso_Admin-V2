@@ -42,18 +42,20 @@ export default function InquiryPage() {
             <span>필터</span>
           </S.FilterButton>
         </S.InquiryMenu>
-        {inquiryItemList.length > 0 &&
-          inquiryItemList.map((data) => (
-            <InquiryItem
-              id={data.id}
-              inquiryDate={data.inquiryDate}
-              title={data.title}
-              imageUrl={data.imageUrl}
-              inquiryStatus={data.inquiryStatus}
-              isReviewChecked={isReviewChecked}
-              isAnswerChecked={isAnswerChecked}
-            />
-          ))}
+        <S.InquiryItemContainer>
+          {inquiryItemList.length > 0 &&
+            inquiryItemList.map((data) => (
+              <InquiryItem
+                id={data.id}
+                inquiryDate={data.inquiryDate}
+                title={data.title}
+                imageUrl={data.imageUrl}
+                inquiryStatus={data.inquiryStatus}
+                isReviewChecked={isReviewChecked}
+                isAnswerChecked={isAnswerChecked}
+              />
+            ))}
+        </S.InquiryItemContainer>
       </S.InquiryList>
       <Filter
         isOpen={isFilterOpen}

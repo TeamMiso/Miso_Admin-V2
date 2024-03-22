@@ -9,21 +9,34 @@ export const InquiryWrapper = styled.div`
 export const InquiryList = styled.div`
   background-color: ${({ theme }) => theme.color.white};
   border: solid ${({ theme }) => theme.color.gray["700"]};
-  width: 80.125rem;
+  width: 80.0625rem;
   min-height: 100vh;
   border-width: 0 0.0625rem;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   box-sizing: border-box;
   padding: 0 1.75rem;
 `;
 
 export const InquiryMenu = styled.span`
-  box-sizing: border-box;
-  width: 100%;
-  margin: 7rem 0 0.75rem 0.65rem;
   display: flex;
-  align-items: center;
+  width: 100%;
+  margin-top: 5.25rem;
+`;
+
+export const InquiryItemContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  @media screen and (max-width: 80rem) {
+    width: 57.25rem;
+  }
+  @media screen and (max-width: 60rem) {
+    width: 38.25rem;
+  }
+  @media screen and (max-width: 40rem) {
+    width: 19.25rem;
+  }
 `;
 
 export const Title = styled.span`
