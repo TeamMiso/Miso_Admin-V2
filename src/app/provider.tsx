@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "@emotion/styled";
 import { theme } from "@/app/styles";
 
 export default function Provider({

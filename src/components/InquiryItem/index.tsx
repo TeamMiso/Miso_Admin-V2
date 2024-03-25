@@ -54,8 +54,8 @@ const InquiryItem = ({
           </S.Date>
           <S.Status
             statusColor={match(inquiryStatus)
-              .with("WAIT", () => "WAIT")
-              .otherwise(() => "APPROVED")}
+              .with("WAIT", () => true)
+              .otherwise(() => false)}
           >
             {match(inquiryStatus)
               .with("WAIT", () => "검토 중")

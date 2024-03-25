@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
+import { match } from "ts-pattern";
 
 export const DetailWrapper = styled.div`
   height: 100%;
@@ -49,8 +50,11 @@ export const Date = styled.span`
   margin-right: 0.5rem;
 `;
 
-export const Status = styled.span<{ statusColor: string }>`
-  color: ${({ theme, statusColor }) => theme.color.status[statusColor]};
+export const Status = styled.span<{ statusColor: boolean }>`
+  color: ${({ theme, statusColor }) =>
+    match(statusColor)
+      .with(true, () => theme.color.green["500"])
+      .otherwise(() => theme.color.gray["700"])};
   ${({ theme }) => theme.typo.text_md.regular}
 `;
 

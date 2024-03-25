@@ -54,8 +54,8 @@ export default function DetailPage() {
               </S.Date>
               <S.Status
                 statusColor={match(inquiryDetail.inquiryStatus)
-                  .with("WAIT", () => "WAIT")
-                  .otherwise(() => "APPROVED")}
+                  .with("WAIT", () => true)
+                  .otherwise(() => false)}
               >
                 {match(inquiryDetail.inquiryStatus)
                   .with("WAIT", () => "검토 중")
