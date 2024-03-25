@@ -20,24 +20,14 @@ const Filter = ({
       <S.CheckMenu>
         <S.ReviewBox
           onClick={() => setIsReviewChecked(!isReviewChecked)}
-          checkedColor={match(isReviewChecked)
-            .with(true, () => "APPROVED")
-            .otherwise(() => "WAIT")}
-          fontWeight={match(isReviewChecked)
-            .with(true, () => "extrabold")
-            .otherwise(() => "semibold")}
+          checkedColor={isReviewChecked}
         >
           <SmallCheck />
           <span>검토 중</span>
         </S.ReviewBox>
         <S.AnswerBox
           onClick={() => setIsAnswerChecked(!isAnswerChecked)}
-          checkedColor={match(isAnswerChecked)
-            .with(true, () => "APPROVED")
-            .otherwise(() => "WAIT")}
-          fontWeight={match(isAnswerChecked)
-            .with(true, () => "extrabold")
-            .otherwise(() => "semibold")}
+          checkedColor={isAnswerChecked}
         >
           <SmallCheck />
           <span>답변 완료</span>

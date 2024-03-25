@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
+import { match } from "ts-pattern";
 
 export const FilterContainer = styled.div<{ display: string }>`
   display: ${({ display }) => display};
@@ -8,7 +9,7 @@ export const FilterContainer = styled.div<{ display: string }>`
   width: 10rem;
   padding: 1rem;
   box-sizing: border-box;
-  left: calc(50% - 32.125rem);
+  left: calc(50% - 31.35rem);
   position: absolute;
   margin-top: 9.25rem;
   z-index: 0;
@@ -35,40 +36,44 @@ export const CheckMenu = styled.div`
 `;
 
 export const ReviewBox = styled.div<{
-  checkedColor: string;
-  fontWeight: string;
+  checkedColor: boolean;
 }>`
-  color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
   margin-bottom: 0.5rem;
+  color: ${({ theme, checkedColor }) =>
+    match(checkedColor)
+      .with(true, () => theme.color.green["500"])
+      .otherwise(() => theme.color.gray["700"])};
   svg {
-    fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+    fill: ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.color.green["500"])
+        .otherwise(() => theme.color.gray["700"])};
   }
   span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
+    ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.typo.caption.extrabold)
+        .otherwise(() => theme.typo.caption.semibold)};
   }
 `;
 
 export const AnswerBox = styled.div<{
-  checkedColor: string;
-  fontWeight: string;
+  checkedColor: boolean;
 }>`
-  color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+  color: ${({ theme, checkedColor }) =>
+    match(checkedColor)
+      .with(true, () => theme.color.green["500"])
+      .otherwise(() => theme.color.gray["700"])};
   svg {
-    fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+    fill: ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.color.green["500"])
+        .otherwise(() => theme.color.gray["700"])};
   }
   span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
-  }
-`;
-
-export const CheckBox = styled.input`
-  background-color: ${({ theme }) => theme.color.gray["700"]};
-  border-radius: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  appearance: none;
-  &:checked {
-    background-color: ${({ theme }) => theme.color.main};
-    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L7 8.586 5.707 7.293z'/%3e%3c/svg%3e");
+    ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.typo.caption.extrabold)
+        .otherwise(() => theme.typo.caption.semibold)};
   }
 `;
