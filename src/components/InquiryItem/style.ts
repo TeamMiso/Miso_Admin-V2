@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
+import { match } from "ts-pattern";
 
 export const InquiryItemWrapper = styled.div<{ display: string }>`
   border: 0.0625rem solid ${({ theme }) => theme.color.gray["800"]};
@@ -45,6 +46,9 @@ export const Date = styled.span`
   margin-right: 0.5rem;
 `;
 
-export const Status = styled.span<{ statusColor: string }>`
-  color: ${({ theme, statusColor }) => theme.color.status[statusColor]};
+export const Status = styled.span<{ statusColor: boolean }>`
+  color: ${({ theme, statusColor }) =>
+    match(statusColor)
+      .with(true, () => theme.color.green["400"])
+      .otherwise(() => theme.color.gray["700"])};
 `;

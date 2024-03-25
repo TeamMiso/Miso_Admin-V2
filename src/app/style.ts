@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
+import { match } from "ts-pattern";
 
 export const InquiryWrapper = styled.div`
   height: 100%;
@@ -47,9 +48,13 @@ export const Title = styled.span`
   margin-right: 1rem;
 `;
 
-export const FilterButton = styled.div<{ isFilterOpen: string; color: string }>`
+export const FilterButton = styled.div<{
+  isFilterOpen: boolean;
+}>`
   background-color: ${({ theme, isFilterOpen }) =>
-    theme.color.status[isFilterOpen]};
+    match(isFilterOpen)
+      .with(true, () => theme.color.green["500"])
+      .otherwise(() => theme.color.white)};
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -58,10 +63,16 @@ export const FilterButton = styled.div<{ isFilterOpen: string; color: string }>`
   height: fit-content;
   span {
     ${({ theme }) => theme.typo.text_sm.regular}
-    color: ${({ theme, color }) => theme.color[color]};
+    color: ${({ theme, isFilterOpen }) =>
+      match(isFilterOpen)
+        .with(true, () => theme.color.green["500"])
+        .otherwise(() => theme.color.white)};
     margin-left: 0.25rem;
   }
   svg {
-    fill: ${({ theme, color }) => theme.color[color]};
+    fill: ${({ theme, isFilterOpen }) =>
+      match(isFilterOpen)
+        .with(true, () => theme.color.white)
+        .otherwise(() => theme.color.main)};
   }
 `;

@@ -40,12 +40,7 @@ export default function InquiryPage() {
           <S.Title>문의목록</S.Title>
           <S.FilterButton
             onClick={() => setIsFilterOpen(!isFilterOpen)}
-            isFilterOpen={match(isFilterOpen)
-              .with(true, () => "APPROVED")
-              .otherwise(() => "white")}
-            color={match(isFilterOpen)
-              .with(true, () => "white")
-              .otherwise(() => "main")}
+            isFilterOpen={isFilterOpen}
           >
             <FilterIcon />
             <span>필터</span>

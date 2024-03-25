@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
+import { match } from "ts-pattern";
 
 export const FilterContainer = styled.div<{ display: string }>`
   display: ${({ display }) => display};
@@ -35,29 +36,45 @@ export const CheckMenu = styled.div`
 `;
 
 export const ReviewBox = styled.div<{
-  checkedColor: string;
-  fontWeight: string;
+  checkedColor: boolean;
 }>`
-  color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+  color: ${({ theme, checkedColor }) =>
+    match(checkedColor)
+      .with(true, () => theme.color.green["500"])
+      .otherwise(() => theme.color.gray["700"])};
   margin-bottom: 0.5rem;
   svg {
-    fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+    fill: ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.color.green["500"])
+        .otherwise(() => theme.color.gray["700"])};
   }
   span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
+    ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.typo.caption.extrabold)
+        .otherwise(() => theme.typo.caption.semibold)};
   }
 `;
 
 export const AnswerBox = styled.div<{
-  checkedColor: string;
-  fontWeight: string;
+  checkedColor: boolean;
 }>`
-  color: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+  color: ${({ theme, checkedColor }) =>
+    match(checkedColor)
+      .with(true, () => theme.typo.caption.extrabold)
+      .otherwise(() => theme.typo.caption.semibold)};
   svg {
-    fill: ${({ theme, checkedColor }) => theme.color.status[checkedColor]};
+    fill: ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.typo.caption.extrabold)
+        .otherwise(() => theme.typo.caption.semibold)};
   }
   span {
-    ${({ theme, fontWeight }) => theme.typo.caption[fontWeight]};
+    ${({ theme, checkedColor }) =>
+      match(checkedColor)
+        .with(true, () => theme.typo.caption.extrabold)
+        .otherwise(() => theme.typo.caption.semibold)};
   }
 `;
 

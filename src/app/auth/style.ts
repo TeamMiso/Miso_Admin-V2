@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const LoginPageWrapper = styled.div<{ imgUrl: StaticImageData }>`
   background-image: url(${({ imgUrl }) => imgUrl.src});
