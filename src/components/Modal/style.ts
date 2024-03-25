@@ -4,6 +4,7 @@ export const ModalBackground = styled.div<{ display: string }>`
   background-color: rgba(0, 0, 0, 0.35);
   position: fixed;
   top: 0;
+  z-index: 1;
   width: 100vw;
   height: 100vh;
   display: ${({ display }) => display};

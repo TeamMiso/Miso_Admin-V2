@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { InquiryItem } from "@/components";
 import { InquiryItemTypes } from "@/types";
 import { FilterIcon } from "@/assets";
-import { match } from "ts-pattern";
 
 export default function InquiryPage() {
   const router = useRouter();

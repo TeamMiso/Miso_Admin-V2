@@ -32,6 +32,7 @@ export const InquiryMenu = styled.span`
 export const InquiryItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  height: calc(100% - 8.75rem);
   @media screen and (max-width: 80rem) {
     width: 57.35rem;
   }
@@ -65,8 +66,8 @@ export const FilterButton = styled.div<{
     ${({ theme }) => theme.typo.text_sm.regular}
     color: ${({ theme, isFilterOpen }) =>
       match(isFilterOpen)
-        .with(true, () => theme.color.green["500"])
-        .otherwise(() => theme.color.white)};
+        .with(true, () => theme.color.white)
+        .otherwise(() => theme.color.main)};
     margin-left: 0.25rem;
   }
   svg {
