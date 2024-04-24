@@ -14,7 +14,7 @@ export const MenuContainer = styled.div`
   border: solid ${({ theme }) => theme.color.gray["700"]};
   border-width: 0 0.0625rem;
   padding: 1.5rem 2.5rem;
-  width: 75rem;
+  width: 74.85rem;
   display: flex;
   justify-content: space-between;
 `;
