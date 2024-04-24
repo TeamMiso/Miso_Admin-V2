@@ -25,7 +25,9 @@ export default function LoginPage() {
   };
 
   const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
-    const regex = new RegExp(/.{3,}/);
+    const regex = new RegExp(
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,24}$/
+    );
     setPw(e.target.value);
     if (regex.test(e.target.value)) {
       setPwValid(true);
