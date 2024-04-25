@@ -10,7 +10,7 @@ export default async function isCheckToken(
   router: AppRouterInstance
 ): Promise<any> {
   try {
-    const { data } = await api.get("/inquiry/all", {
+    const { data } = await api.get("/inquiry", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
