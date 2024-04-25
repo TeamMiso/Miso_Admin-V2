@@ -46,7 +46,7 @@ export default function InquiryPage() {
           </S.FilterButton>
         </S.InquiryMenu>
         <S.InquiryItemContainer>
-          {inquiryItemList.length > 0 &&
+          {inquiryItemList &&
             inquiryItemList.map((data) => (
               <InquiryItem
                 id={data.id}

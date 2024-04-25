@@ -15,10 +15,13 @@ export const InquiryList = styled.div`
   border-width: 0 0.0625rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
-  align-content: center;
+  align-content: flex-start;
   padding: 0 1.75rem;
+  @media screen and (max-width: 80rem) {
+    justify-content: center;
+  }
 `;
 
 export const InquiryMenu = styled.span`
@@ -32,12 +35,11 @@ export const InquiryMenu = styled.span`
 export const InquiryItemContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  height: calc(100% - 8.75rem);
   @media screen and (max-width: 80rem) {
-    width: 57.35rem;
+    width: 57.45rem;
   }
   @media screen and (max-width: 60rem) {
-    width: 38.25rem;
+    width: 38.35rem;
   }
   @media screen and (max-width: 40rem) {
     width: 19.25rem;
