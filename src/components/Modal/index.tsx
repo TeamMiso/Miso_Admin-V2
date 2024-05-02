@@ -22,7 +22,7 @@ const Modal = ({
   };
 
   const accessHandler = () => {
-    isAnswering(router, id, mainText).then(() => closeModal());
+    isAnswering(router, id).then(() => closeModal());
   };
 
   return (
