@@ -8,31 +8,18 @@ const api = axios.create({
 
 export default async function isAnswering(
   router: AppRouterInstance,
-  id: number,
-  answer: string
+  id: number
 ): Promise<any> {
   try {
-    const accessToken = localStorage.getItem("accessToken");
-    if (!accessToken) {
-      throw new Error("엑세스 토큰을 찾지 못했습니다.");
-    }
-
-    const response = await api.patch(
-      `/inquiry/respond/${id}`,
-      {
-        answer: answer,
+    const { data } = await api.get(`/notification/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
-    router.push(`/inquiry/complete/${id}`);
-
-    return response.data;
-  } catch (error) {
-    toast.error("유효하지 않은 토큰입니다.");
+    });
+    return data;
+  } catch (error: any) {
+    router.push("/auth");
+    toast.info("다시 로그인 해주세요.");
     throw error;
   }
 }

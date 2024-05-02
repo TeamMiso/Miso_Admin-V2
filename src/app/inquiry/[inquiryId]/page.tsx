@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import isInquiryDetail from "@/api/inquiry/isInquiryDetail";
 import { match } from "ts-pattern";
 import { InquiryDetailTypes } from "@/types";
+import isAnswering from "@/api/inquiry/isAnswering";
 
 export default function DetailPage() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function DetailPage() {
     imageUrl: "",
     inquiryStatus: "",
   });
+  const [answerContent, setAnswerContent] = useState<string>("");
   const pathname = usePathname();
   const id = Number(pathname.slice(9));
 
@@ -25,9 +27,11 @@ export default function DetailPage() {
     async function fetchData() {
       try {
         const data = await isInquiryDetail(router, id);
+        const answerData = await isAnswering(router, id);
         setInquiryDetail(data);
+        setAnswerContent(answerData.answer);
       } catch (error) {
-        console.error("조회 데이터를 가져오는 중 오류 발생:", error);
+        console.error(error);
       }
     }
 
@@ -68,7 +72,7 @@ export default function DetailPage() {
         {match(inquiryDetail.inquiryStatus)
           .with("WAIT", () => <AnswerInput id={inquiryDetail.id} />)
           .otherwise(() => (
-            <AnswerText content={inquiryDetail.content} />
+            <AnswerText content={answerContent} />
           ))}
       </S.DetailContainer>
     </S.DetailWrapper>
